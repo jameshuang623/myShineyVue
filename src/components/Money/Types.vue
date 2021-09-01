@@ -15,22 +15,24 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 
-@Component({
-  props: {
-    propMessage: String
-  }
-})
+@Component
 export default class Types extends Vue {
   type = '-'; // '-'代表支出，'+'代表收入
-  helloMsg = 'Hello,' + this.propMessage;
+
+  // @Prop(Number) xxx: number | undefined;
+  // Number 告诉 Vue xxx 运行时是个 Number
+  // number | undefined 告诉 TS xxx 的编译时类型
+
+
   selectType(type: string) { // type 只能是 '-'和'+'中的一个
     if (type !== '-' && type !== '+') {
       throw new Error('type is unknown');
     }
     this.type = type;
   }
+
 }
 
 // export default {
