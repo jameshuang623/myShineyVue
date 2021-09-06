@@ -54,7 +54,8 @@ export default class NumberPad extends Vue {
 
   ok() {
     this.$emit('update:value', this.output);
-    this.$emit('submit', this.output) // 这里单独设置一个submit是为了防止以后ok不是同时触发这两个事件,submit可以更改到别处
+    this.$emit('submit', this.output); // 这里单独设置一个submit是为了防止以后ok不是同时触发这两个事件,submit可以更改到别处
+    this.output = '0';
   }
 
 }
